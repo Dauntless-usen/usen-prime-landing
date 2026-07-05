@@ -25,7 +25,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-botto
 .mobile-menu a:hover,.mobile-menu a:active{background:#fff5f5;border-left-color:#2563EB}
 
 /* HERO */
-.hero{padding:140px 24px 80px;text-align:center;display:flex;flex-direction:column;align-items:center;background:radial-gradient(ellipse at top,#ffcccc 0%,#ffe0e0 40%,#fff5f5 100%);position:relative;overflow:visible}
+.hero{padding:140px 24px 80px;text-align:center;display:flex;flex-direction:column;align-items:center;background:radial-gradient(ellipse at top,#ffcccc 0%,#ffe0e0 40%,#fff5f5 100%);position:relative;overflow:hidden}
+.hero h1,.hero-sub,.hero-btns,.model-pills,.mockup-card{position:relative;z-index:2}
+.float-tile{z-index:1}
 .hero h1{font-size:clamp(48px,10vw,80px);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:24px}
 .line1{color:#1a1a2e;display:block}
 .line2{color:#2563EB;display:block}
@@ -132,9 +134,17 @@ footer{background:#fff;border-top:1px solid #f0f0f0;padding:16px 24px}
   .btn-dark,.btn-outline{width:100%;max-width:300px;text-align:center}
   .footer-inner{flex-direction:column;align-items:center;text-align:center;gap:10px}
   .footer-links{flex-wrap:wrap;justify-content:center}
-  .hero{padding:110px 16px 60px}
+  .hero{padding:110px 16px 60px;overflow-x:hidden}
   .why,.pricing{padding:60px 16px}
   .faq{padding:60px 16px 32px}
+  .float-tile{display:flex;width:48px;height:48px}
+  .float-tile svg{width:24px;height:24px}
+  .ft1{top:5%;left:3%}
+  .ft2{top:35%;left:2%}
+  .ft3{top:65%;left:5%}
+  .ft4{top:8%;right:3%}
+  .ft5{top:40%;right:2%}
+  .ft6{top:70%;right:5%}
 }
 </style>
 </head>
