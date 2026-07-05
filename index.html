@@ -3,315 +3,387 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>UsenPrime Global Deals AI — Access Powerful AI Tools in Naira</title>
+<title>UsenPrime - Access All AI Models, Pay in Naira</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --navy:#0A1628;
-  --navy-light:#0F2044;
-  --navy-mid:#1a2f55;
-  --blue:#2563EB;
-  --blue-light:#3B82F6;
-  --blue-glow:rgba(37,99,235,0.35);
-  --white:#FFFFFF;
-  --grey:#94A3B8;
-  --grey-light:#CBD5E1;
-  --card-bg:#0D1F3C;
-  --border:rgba(37,99,235,0.2);
-}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--white);line-height:1.6;overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#fff5f5;color:#4a4a6a;line-height:1.6;overflow-x:hidden}
 
-/* ── HEADER ── */
-.site-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 5%}
-.nav-cta{background:var(--blue);color:#fff;padding:.55rem 1.3rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem;transition:background .2s,transform .15s,box-shadow .2s;border:none;cursor:pointer}
-.nav-cta:hover{background:var(--blue-light);transform:translateY(-1px);box-shadow:0 4px 16px var(--blue-glow)}
+/* NAVBAR */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 24px}
+.hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:#1a1a2e;border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:#ffffff;flex-direction:column;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,0.08);border-radius:0 0 16px 16px;padding:8px 0}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:#1a1a2e;text-decoration:none;font-weight:600;font-size:17px;padding:16px 24px;border-bottom:1px solid #f0e0e0;border-left:3px solid transparent;transition:background .15s,border-left-color .15s}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu a:hover,.mobile-menu a:active{background:#fff5f5;border-left-color:#2563EB}
 
-/* ── HERO ── */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px 5% 80px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(37,99,235,0.18) 0%,transparent 70%);pointer-events:none}
-.hero::after{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(37,99,235,0.08) 0%,transparent 65%);pointer-events:none}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.35);border-radius:100px;padding:.45rem 1rem;font-size:.8rem;font-weight:500;color:var(--blue-light);margin-bottom:1.8rem;letter-spacing:.02em}
-.hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--blue-light);box-shadow:0 0 6px var(--blue-light);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.hero h1{font-size:clamp(2.2rem,5.5vw,4rem);font-weight:900;line-height:1.1;margin-bottom:1.2rem;letter-spacing:-.02em;max-width:820px}
-.hero h1 .highlight{background:linear-gradient(90deg,var(--blue-light),#818CF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:var(--grey);max-width:560px;margin:0 auto 2.5rem;font-weight:400}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-bottom:3.5rem}
-.btn-primary{background:var(--blue);color:#fff;padding:.85rem 1.8rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:1rem;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem;box-shadow:0 4px 20px var(--blue-glow)}
-.btn-primary:hover{background:var(--blue-light);transform:translateY(-2px);box-shadow:0 8px 28px var(--blue-glow)}
-.btn-secondary{background:rgba(255,255,255,0.07);color:#fff;padding:.85rem 1.8rem;border-radius:10px;text-decoration:none;font-weight:600;font-size:1rem;border:1px solid rgba(255,255,255,0.15);transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
-.btn-secondary:hover{background:rgba(255,255,255,0.12);transform:translateY(-2px)}
-.model-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;align-items:center}
-.model-badge{display:flex;align-items:center;gap:.55rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:.6rem 1.1rem;font-size:.85rem;font-weight:600;color:var(--grey-light)}
-.model-icon{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0}
-.icon-gpt{background:linear-gradient(135deg,#10A37F,#1A7F64);color:#fff}
-.icon-claude{background:linear-gradient(135deg,#D97706,#B45309);color:#fff}
-.icon-deepseek{background:linear-gradient(135deg,#6366F1,#4F46E5);color:#fff}
-.badges-label{font-size:.78rem;color:var(--grey);margin-right:.25rem}
+/* HERO */
+.hero{padding:140px 24px 80px;text-align:center;display:flex;flex-direction:column;align-items:center;background:radial-gradient(ellipse at top,#ffcccc 0%,#ffe0e0 40%,#fff5f5 100%);position:relative;overflow:visible}
+.hero h1{font-size:clamp(48px,10vw,80px);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:24px}
+.line1{color:#1a1a2e;display:block}
+.line2{color:#2563EB;display:block}
+.hero-sub{font-size:18px;color:#4a4a6a;max-width:520px;margin:0 auto 40px;line-height:1.65}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+.btn-dark{background:#1a1a2e;color:#fff;border:2px solid #1a1a2e;border-radius:50px;padding:16px 32px;font-size:16px;font-weight:700;text-decoration:none;transition:opacity .2s,transform .2s;white-space:nowrap;display:inline-block}
+.btn-dark:hover{opacity:.87;transform:translateY(-2px)}
+.btn-outline{background:#fff;color:#1a1a2e;border:2px solid #1a1a2e;border-radius:50px;padding:16px 32px;font-size:16px;font-weight:700;text-decoration:none;transition:background .2s,transform .2s;white-space:nowrap;display:inline-block}
+.btn-outline:hover{background:#f5f5f5;transform:translateY(-2px)}
+.model-pills{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:48px}
+.pill{background:#f5f5f5;color:#4a4a6a;font-size:13px;font-weight:600;padding:6px 14px;border-radius:50px}
 
-/* ── SECTION BASE ── */
-section{padding:90px 5%}
-.section-label{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-light);margin-bottom:.8rem}
-.section-title{font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.8rem}
-.section-sub{color:var(--grey);font-size:1rem;max-width:520px}
-.center{text-align:center}
-.center .section-sub{margin:0 auto}
+/* MOCKUP */
+.mockup-card{background:#f8f8ff;border:1px solid #e8e8f0;border-radius:20px;padding:32px;max-width:680px;width:100%;text-align:left}
+.mockup-topbar{display:flex;align-items:center;gap:8px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #e8e8f0}
+.dot{width:12px;height:12px;border-radius:50%;display:inline-block;flex-shrink:0}
+.dot-r{background:#ff5f57}
+.dot-y{background:#ffbd2e}
+.dot-g{background:#28c941}
+.mockup-label{font-size:12px;color:#4a4a6a;font-weight:600;margin-left:8px}
+.chat-wrap{display:flex;flex-direction:column;gap:14px;margin-bottom:20px}
+.bubble-user{align-self:flex-end;background:#2563EB;color:#fff;border-radius:18px 18px 4px 18px;padding:12px 16px;max-width:70%;font-size:14px;line-height:1.5}
+.bubble-ai{align-self:flex-start;background:#fff;border:1px solid #e8e8f0;color:#1a1a2e;border-radius:18px 18px 18px 4px;padding:12px 16px;max-width:85%;font-size:14px;line-height:1.5}
+.chat-input-row{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #e0e0e0;border-radius:50px;padding:10px 10px 10px 18px}
+.chat-input-row input{flex:1;border:none;outline:none;font-family:inherit;font-size:14px;color:#4a4a6a;background:transparent}
+.chat-input-row input::placeholder{color:#bbb}
+.send-btn{width:36px;height:36px;background:#2563EB;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 
-/* ── HOW IT WORKS ── */
-.hiw{background:var(--navy-light)}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-.step-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:2rem 1.8rem;position:relative;transition:border-color .25s,transform .25s}
-.step-card:hover{border-color:var(--blue);transform:translateY(-4px)}
-.step-num{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--blue),#4F46E5);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;margin-bottom:1.3rem;box-shadow:0 4px 12px var(--blue-glow)}
-.step-icon{font-size:1.5rem;margin-bottom:.6rem}
-.step-card h3{font-size:1.1rem;font-weight:700;margin-bottom:.6rem}
-.step-card p{color:var(--grey);font-size:.9rem;line-height:1.6}
-.step-connector{display:none}
+/* WHY SECTION */
+.why{padding:80px 24px;text-align:center;background:radial-gradient(ellipse at top,#ffcccc 0%,#ffe0e0 40%,#fff5f5 100%)}
+.why h2{font-size:32px;font-weight:700;color:#1a1a2e;margin-bottom:48px}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:960px;margin:0 auto;text-align:left}
+.why-card{background:#fff;border:1px solid #f0e8e8;border-radius:16px;padding:28px}
+.why-icon{width:56px;height:56px;border-radius:12px;background:#fff0f0;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.why-card h3{font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:10px}
+.why-card p{font-size:15px;color:#4a4a6a;line-height:1.65}
 
-/* ── PRICING ── */
-.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:820px;margin:3rem auto 0}
-.price-card{background:var(--card-bg);border:1px solid var(--border);border-radius:20px;padding:2.2rem;position:relative;transition:all .25s;display:flex;flex-direction:column}
-.price-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.4)}
-.price-card.popular{border-color:var(--blue);background:linear-gradient(160deg,#0D1F3C 60%,rgba(37,99,235,0.08) 100%)}
-.popular-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--blue),#7C3AED);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.35rem 1rem;border-radius:100px;white-space:nowrap}
-.plan-name{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-light);margin-bottom:.8rem}
-.plan-price{display:flex;align-items:flex-end;gap:.3rem;margin-bottom:.3rem}
-.plan-price .currency{font-size:1.6rem;font-weight:700;color:var(--white);line-height:1;padding-bottom:.3rem}
-.plan-price .amount{font-size:3rem;font-weight:900;color:var(--white);line-height:1}
-.plan-price .period{font-size:.9rem;color:var(--grey);padding-bottom:.6rem}
-.plan-desc{color:var(--grey);font-size:.88rem;margin-bottom:1.6rem;border-bottom:1px solid var(--border);padding-bottom:1.4rem}
-.plan-features{list-style:none;display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem;flex:1}
-.plan-features li{display:flex;align-items:flex-start;gap:.65rem;font-size:.9rem;color:var(--grey-light)}
-.plan-features li::before{content:'✓';color:var(--blue-light);font-weight:800;font-size:.85rem;flex-shrink:0;margin-top:.05rem}
-.plan-features li.highlight-feat{color:var(--white);font-weight:500}
-.btn-plan{display:block;text-align:center;padding:.9rem;border-radius:10px;font-weight:700;font-size:.95rem;text-decoration:none;transition:all .2s;margin-top:auto}
-.btn-plan-basic{background:rgba(37,99,235,0.12);border:1px solid var(--blue);color:var(--blue-light)}
-.btn-plan-basic:hover{background:var(--blue);color:#fff;box-shadow:0 4px 16px var(--blue-glow)}
-.btn-plan-pro{background:var(--blue);color:#fff;box-shadow:0 4px 16px var(--blue-glow)}
-.btn-plan-pro:hover{background:var(--blue-light);transform:translateY(-1px);box-shadow:0 8px 24px var(--blue-glow)}
+/* PRICING */
+.pricing{padding:80px 24px;text-align:center;background:radial-gradient(ellipse at top,#ffcccc 0%,#ffe0e0 40%,#fff5f5 100%)}
+.pricing h2{font-size:32px;font-weight:700;color:#1a1a2e;margin-bottom:8px}
+.pricing-sub{color:#4a4a6a;font-size:16px;margin-bottom:48px}
+.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:760px;margin:0 auto;text-align:left}
+.price-card{background:#fff;border:1px solid #e8e8f0;border-radius:20px;padding:36px;box-shadow:0 4px 24px rgba(0,0,0,0.06);display:flex;flex-direction:column}
+.price-card.pro{border:2px solid #2563EB}
+.popular-pill{display:inline-block;background:#2563EB;color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:50px;margin-bottom:16px}
+.plan-label{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#4a4a6a;margin-bottom:12px}
+.plan-amount{display:flex;align-items:flex-end;gap:4px;margin-bottom:4px}
+.plan-sym{font-size:28px;font-weight:700;color:#1a1a2e;line-height:1;padding-bottom:8px}
+.plan-num{font-size:56px;font-weight:800;color:#1a1a2e;line-height:1}
+.plan-period{font-size:14px;color:#aaa;margin-bottom:24px}
+.divider{height:1px;background:#f0f0f0;margin-bottom:24px}
+.feat-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px;flex:1}
+.feat-list li{display:flex;align-items:center;gap:10px;font-size:15px;color:#4a4a6a}
+.chk{flex-shrink:0}
+.btn-full-dark{display:block;text-align:center;background:#1a1a2e;color:#fff;border-radius:12px;padding:16px;font-size:16px;font-weight:700;text-decoration:none;transition:opacity .2s}
+.btn-full-dark:hover{opacity:.85}
+.btn-full-blue{display:block;text-align:center;background:#2563EB;color:#fff;border-radius:12px;padding:16px;font-size:16px;font-weight:700;text-decoration:none;transition:opacity .2s}
+.btn-full-blue:hover{opacity:.88}
 
-/* ── FAQ ── */
-.faq{background:var(--navy-light)}
-.faq-list{max-width:720px;margin:3rem auto 0;display:flex;flex-direction:column;gap:.75rem}
-.faq-item{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color .2s}
-.faq-item.open{border-color:var(--blue)}
-.faq-q{width:100%;background:none;border:none;color:var(--white);font-family:inherit;font-size:1rem;font-weight:600;text-align:left;padding:1.3rem 1.6rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.faq-q:hover{color:var(--blue-light)}
-.faq-icon{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;transition:transform .3s,border-color .2s;color:var(--grey)}
-.faq-item.open .faq-icon{transform:rotate(45deg);border-color:var(--blue);color:var(--blue-light)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s}
-.faq-item.open .faq-a{max-height:200px}
-.faq-a p{color:var(--grey);font-size:.92rem;line-height:1.7;padding:0 1.6rem 1.3rem}
+/* FAQ */
+.faq{background:radial-gradient(ellipse at top,#ffcccc 0%,#ffe0e0 40%,#fff5f5 100%);padding:80px 24px 40px}
+.faq h2{font-size:32px;font-weight:700;color:#1a1a2e;text-align:center;margin-bottom:40px}
+.faq-list{max-width:720px;margin:0 auto}
+.faq-item{background:#fff;border:1px solid #f0e0e0;border-radius:16px;padding:24px 28px;margin-bottom:12px;cursor:pointer;user-select:none}
+.faq-item:last-child{margin-bottom:0}
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-q span{font-size:16px;font-weight:600;color:#1a1a2e}
+.faq-chevron{font-size:20px;color:#2563EB;transition:transform 0.3s ease;flex-shrink:0;line-height:1;font-weight:400}
+.faq-item.open .faq-chevron{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding-top .3s}
+.faq-item.open .faq-a{max-height:220px;padding-top:16px}
+.faq-a p{font-size:15px;color:#4a4a6a;line-height:1.7}
 
-/* ── FOOTER ── */
-footer{background:var(--navy);border-top:1px solid var(--border);padding:3rem 5%;text-align:center}
-.footer-logo{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:.8rem}
-.footer-logo .logo-icon{width:32px;height:32px;font-size:12px}
-.footer-brand{font-weight:700;font-size:1rem;color:var(--white)}
-.footer-tag{color:var(--grey);font-size:.88rem;margin-bottom:.6rem}
-.footer-copy{color:rgba(148,163,184,.5);font-size:.78rem}
+/* FOOTER */
+footer{background:#fff;border-top:1px solid #f0f0f0;padding:16px 24px}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-left{display:flex;align-items:center;gap:10px}
+.footer-tagline{font-size:12px;color:#4a4a6a}
+.footer-links{display:flex;flex-direction:row;gap:20px;align-items:center}
+.footer-links a{color:#4a4a6a;text-decoration:none;font-size:13px;transition:color .2s}
+.footer-links a:hover{color:#1a1a2e}
+.footer-copy{font-size:13px;color:#aaa}
 
-/* ── RESPONSIVE ── */
+/* FLOATING TILES */
+.float-tile{position:absolute;width:64px;height:64px;border-radius:16px;background:#fff;box-shadow:0 4px 16px rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;transition:transform 0.3s ease-out;pointer-events:none;z-index:10}
+.ft1{top:10%;left:3%;animation:float 4s ease-in-out 0s infinite}
+.ft2{top:22%;left:10%;animation:float 5s ease-in-out 0.7s infinite}
+.ft3{top:34%;left:4%;animation:float 6s ease-in-out 1.4s infinite}
+.ft4{top:10%;right:3%;animation:float 4s ease-in-out 2.1s infinite}
+.ft5{top:22%;right:10%;animation:float 5s ease-in-out 2.8s infinite}
+.ft6{top:34%;right:4%;animation:float 6s ease-in-out 3.5s infinite}
+@keyframes float{0%{transform:translateY(0px) rotate(0deg)}25%{transform:translateY(-10px) rotate(2deg)}50%{transform:translateY(-18px) rotate(-1deg)}75%{transform:translateY(-8px) rotate(1deg)}100%{transform:translateY(0px) rotate(0deg)}}
+@media(max-width:768px){.float-tile{display:none}}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
 @media(max-width:768px){
-.steps{grid-template-columns:1fr}
-  .pricing-grid{grid-template-columns:1fr;max-width:480px}
-  .price-card.popular{margin-top:1rem}
-  .hero h1{font-size:clamp(1.8rem,7vw,2.5rem)}
+  .why-grid{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr;max-width:440px}
   .hero-btns{flex-direction:column;align-items:center}
-  .btn-primary,.btn-secondary{width:100%;max-width:320px;justify-content:center}
-  section{padding:70px 5%}
+  .btn-dark,.btn-outline{width:100%;max-width:300px;text-align:center}
+  .footer-inner{flex-direction:column;align-items:center;text-align:center;gap:10px}
+  .footer-links{flex-wrap:wrap;justify-content:center}
+  .hero{padding:110px 16px 60px}
+  .why,.pricing{padding:60px 16px}
+  .faq{padding:60px 16px 32px}
 }
-@media(max-width:480px){
-  nav{padding:0 4%}
-  .hero{padding:20px 4% 60px}
-  .model-badges{gap:.5rem}
-  .model-badge{font-size:.78rem;padding:.5rem .8rem}
-}
-
-/* ── GLOW DIVIDER ── */
-.glow-line{height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:.4;margin:0}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="site-header">
-  <a href="#">
-    <img src="preview-removebg-preview.png" alt="Usen Prime Inc" style="width:180px;height:auto;object-fit:contain;mix-blend-mode:lighten;">
+<!-- NAVBAR -->
+<nav>
+  <a href="#" style="display:flex;align-items:center;line-height:0;">
+    <img src="logo.png" alt="UsenPrime" style="height:64px;width:auto;max-width:220px;object-fit:contain;padding:0;margin:0;display:block;">
   </a>
-  <a href="#pricing" class="nav-cta">Get Started</a>
-</header>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#why">Why UsenPrime</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#faq">FAQ</a>
+  <a href="#pricing">Get Started</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-badge">&#9679; Now available in Nigeria - Pay in Naira</div>
-  <h1>Access the World's Most<br/><span class="highlight">Powerful AI Tools</span><br/>Pay in Naira</h1>
-  <p class="hero-sub">One subscription. Multiple frontier AI models. No dollar payment stress. Get instant access to ChatGPT, Claude, and DeepSeek - billed locally.</p>
+  <!-- Floating decorative tiles: left = Claude, OpenAI, DeepSeek | right = OpenAI, DeepSeek, Claude -->
+  <div class="float-tile ft1" data-tile>
+    <svg width="34" height="34" viewBox="0 -.01 39.5 39.53" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m7.75 26.27 7.77-4.36.13-.38-.13-.21h-.38l-1.3-.08-4.44-.12-3.85-.16-3.73-.2-.94-.2-.88-1.16.09-.58.79-.53 1.13.1 2.5.17 3.75.26 2.72.16 4.03.42h.64l.09-.26-.22-.16-.17-.16-3.88-2.63-4.2-2.78-2.2-1.6-1.19-.81-.6-.76-.26-1.66 1.08-1.19 1.45.1.37.1 1.47 1.13 3.14 2.43 4.1 3.02.6.5.24-.17.03-.12-.27-.45-2.23-4.03-2.38-4.1-1.06-1.7-.28-1.02c-.1-.42-.17-.77-.17-1.2l1.23-1.67.68-.22 1.64.22.69.6 1.02 2.33 1.65 3.67 2.56 4.99.75 1.48.4 1.37.15.42h.26v-.24l.21-2.81.39-3.45.38-4.44.13-1.25.62-1.5 1.23-.81.96.46.79 1.13-.11.73-.47 3.05-.92 4.78-.6 3.2h.35l.4-.4 1.62-2.15 2.72-3.4 1.2-1.35 1.4-1.49.9-.71h1.7l1.25 1.86-.56 1.92-1.75 2.22-1.45 1.88-2.08 2.8-1.3 2.24.12.18.31-.03 4.7-1 2.54-.46 3.03-.52 1.37.64.15.65-.54 1.33-3.24.8-3.8.76-5.66 1.34-.07.05.08.1 2.55.24 1.09.06h2.67l4.97.37 1.3.86.78 1.05-.13.8-2 1.02-2.7-.64-6.3-1.5-2.16-.54h-.3v.18l1.8 1.76 3.3 2.98 4.13 3.84.21.95-.53.75-.56-.08-3.63-2.73-1.4-1.23-3.17-2.67h-.21v.28l.73 1.07 3.86 5.8.2 1.78-.28.58-1 .35-1.1-.2-2.26-3.17-2.33-3.57-1.88-3.2-.23.13-1.11 11.95-.52.61-1.2.46-1-.76-.53-1.23.53-2.43.64-3.17.52-2.52.47-3.13.28-1.04-.02-.07-.23.03-2.36 3.24-3.59 4.85-2.84 3.04-.68.27-1.18-.61.11-1.09.66-.97 3.93-5 2.37-3.1 1.53-1.79-.01-.26h-.09l-10.44 6.78-1.86.24-.8-.75.1-1.23.38-.4 3.14-2.16z" fill="#d97757"/></svg>
+  </div>
+  <div class="float-tile ft2" data-tile>
+    <svg width="34" height="34" viewBox="-0.17090198558635983 0.482230148717937 41.14235318283891 40.0339509076386" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835A9.964 9.964 0 0 0 18.306.5a10.079 10.079 0 0 0-9.614 6.977 9.967 9.967 0 0 0-6.664 4.834 10.08 10.08 0 0 0 1.24 11.817 9.965 9.965 0 0 0 .856 8.185 10.079 10.079 0 0 0 10.855 4.835 9.965 9.965 0 0 0 7.516 3.35 10.078 10.078 0 0 0 9.617-6.981 9.967 9.967 0 0 0 6.663-4.834 10.079 10.079 0 0 0-1.243-11.813zM22.498 37.886a7.474 7.474 0 0 1-4.799-1.735c.061-.033.168-.091.237-.134l7.964-4.6a1.294 1.294 0 0 0 .655-1.134V19.054l3.366 1.944a.12.12 0 0 1 .066.092v9.299a7.505 7.505 0 0 1-7.49 7.496zM6.392 31.006a7.471 7.471 0 0 1-.894-5.023c.06.036.162.099.237.141l7.964 4.6a1.297 1.297 0 0 0 1.308 0l9.724-5.614v3.888a.12.12 0 0 1-.048.103l-8.051 4.649a7.504 7.504 0 0 1-10.24-2.744zM4.297 13.62A7.469 7.469 0 0 1 8.2 10.333c0 .068-.004.19-.004.274v9.201a1.294 1.294 0 0 0 .654 1.132l9.723 5.614-3.366 1.944a.12.12 0 0 1-.114.01L7.04 23.856a7.504 7.504 0 0 1-2.743-10.237zm27.658 6.437l-9.724-5.615 3.367-1.943a.121.121 0 0 1 .113-.01l8.052 4.648a7.498 7.498 0 0 1-1.158 13.528v-9.476a1.293 1.293 0 0 0-.65-1.132zm3.35-5.043c-.059-.037-.162-.099-.236-.141l-7.965-4.6a1.298 1.298 0 0 0-1.308 0l-9.723 5.614v-3.888a.12.12 0 0 1 .048-.103l8.05-4.645a7.497 7.497 0 0 1 11.135 7.763zm-21.063 6.929l-3.367-1.944a.12.12 0 0 1-.065-.092v-9.299a7.497 7.497 0 0 1 12.293-5.756 6.94 6.94 0 0 0-.236.134l-7.965 4.6a1.294 1.294 0 0 0-.654 1.132l-.006 11.225zm1.829-3.943l4.33-2.501 4.332 2.5v5l-4.331 2.5-4.331-2.5V18z" fill="#000"/></svg>
+  </div>
+  <div class="float-tile ft3" data-tile>
+    <svg width="34" height="34" viewBox="3.771 6.973 23.993 17.652" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m27.501 8.469c-.252-.123-.36.111-.508.23-.05.04-.093.09-.135.135-.368.395-.797.652-1.358.621-.821-.045-1.521.213-2.14.842-.132-.776-.57-1.238-1.235-1.535-.349-.155-.701-.309-.944-.645-.171-.238-.217-.504-.303-.765-.054-.159-.108-.32-.29-.348-.197-.031-.274.135-.352.273-.31.567-.43 1.192-.419 1.825.028 1.421.628 2.554 1.82 3.36.136.093.17.186.128.321-.081.278-.178.547-.264.824-.054.178-.135.217-.324.14a5.448 5.448 0 0 1-1.719-1.169c-.848-.82-1.614-1.726-2.57-2.435-.225-.166-.449-.32-.681-.467-.976-.95.128-1.729.383-1.82.267-.096.093-.428-.77-.424s-1.653.293-2.659.677a2.782 2.782 0 0 1-.46.135 9.554 9.554 0 0 0-2.853-.1c-1.866.21-3.356 1.092-4.452 2.6-1.315 1.81-1.625 3.87-1.246 6.018.399 2.261 1.552 4.136 3.326 5.601 1.837 1.518 3.955 2.262 6.37 2.12 1.466-.085 3.1-.282 4.942-1.842.465.23.952.322 1.762.392.623.059 1.223-.031 1.687-.127.728-.154.677-.828.414-.953-2.132-.994-1.665-.59-2.09-.916 1.084-1.285 2.717-2.619 3.356-6.94.05-.343.007-.558 0-.837-.004-.168.034-.235.228-.254a4.084 4.084 0 0 0 1.529-.47c1.382-.757 1.938-1.997 2.07-3.485.02-.227-.004-.463-.243-.582zm-12.041 13.391c-2.067-1.627-3.07-2.162-3.483-2.138-.387.021-.318.465-.233.754.089.285.205.482.368.732.113.166.19.414-.112.598-.666.414-1.823-.139-1.878-.166-1.347-.793-2.473-1.842-3.267-3.276-.765-1.38-1.21-2.861-1.284-4.441-.02-.383.093-.518.472-.586a4.692 4.692 0 0 1 1.514-.04c2.109.31 3.905 1.255 5.41 2.749.86.853 1.51 1.871 2.18 2.865.711 1.057 1.478 2.063 2.454 2.887.343.289.619.51.881.672-.792.088-2.117.107-3.022-.61zm.99-6.38a.304.304 0 1 1 .609 0c0 .17-.136.304-.306.304a.3.3 0 0 1-.303-.305zm3.077 1.581c-.197.08-.394.15-.584.159a1.246 1.246 0 0 1-.79-.252c-.27-.227-.463-.354-.546-.752a1.752 1.752 0 0 1 .016-.582c.07-.324-.008-.531-.235-.72-.187-.155-.422-.196-.682-.196a.551.551 0 0 1-.252-.078c-.108-.055-.197-.19-.112-.356.027-.053.159-.183.19-.207.352-.201.758-.135 1.134.016.349.142.611.404.99.773.388.448.457.573.678.906.174.264.333.534.441.842.066.192-.02.35-.248.448z" fill="#4d6bfe"/></svg>
+  </div>
+  <div class="float-tile ft4" data-tile>
+    <svg width="34" height="34" viewBox="-0.17090198558635983 0.482230148717937 41.14235318283891 40.0339509076386" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835A9.964 9.964 0 0 0 18.306.5a10.079 10.079 0 0 0-9.614 6.977 9.967 9.967 0 0 0-6.664 4.834 10.08 10.08 0 0 0 1.24 11.817 9.965 9.965 0 0 0 .856 8.185 10.079 10.079 0 0 0 10.855 4.835 9.965 9.965 0 0 0 7.516 3.35 10.078 10.078 0 0 0 9.617-6.981 9.967 9.967 0 0 0 6.663-4.834 10.079 10.079 0 0 0-1.243-11.813zM22.498 37.886a7.474 7.474 0 0 1-4.799-1.735c.061-.033.168-.091.237-.134l7.964-4.6a1.294 1.294 0 0 0 .655-1.134V19.054l3.366 1.944a.12.12 0 0 1 .066.092v9.299a7.505 7.505 0 0 1-7.49 7.496zM6.392 31.006a7.471 7.471 0 0 1-.894-5.023c.06.036.162.099.237.141l7.964 4.6a1.297 1.297 0 0 0 1.308 0l9.724-5.614v3.888a.12.12 0 0 1-.048.103l-8.051 4.649a7.504 7.504 0 0 1-10.24-2.744zM4.297 13.62A7.469 7.469 0 0 1 8.2 10.333c0 .068-.004.19-.004.274v9.201a1.294 1.294 0 0 0 .654 1.132l9.723 5.614-3.366 1.944a.12.12 0 0 1-.114.01L7.04 23.856a7.504 7.504 0 0 1-2.743-10.237zm27.658 6.437l-9.724-5.615 3.367-1.943a.121.121 0 0 1 .113-.01l8.052 4.648a7.498 7.498 0 0 1-1.158 13.528v-9.476a1.293 1.293 0 0 0-.65-1.132zm3.35-5.043c-.059-.037-.162-.099-.236-.141l-7.965-4.6a1.298 1.298 0 0 0-1.308 0l-9.723 5.614v-3.888a.12.12 0 0 1 .048-.103l8.05-4.645a7.497 7.497 0 0 1 11.135 7.763zm-21.063 6.929l-3.367-1.944a.12.12 0 0 1-.065-.092v-9.299a7.497 7.497 0 0 1 12.293-5.756 6.94 6.94 0 0 0-.236.134l-7.965 4.6a1.294 1.294 0 0 0-.654 1.132l-.006 11.225zm1.829-3.943l4.33-2.501 4.332 2.5v5l-4.331 2.5-4.331-2.5V18z" fill="#000"/></svg>
+  </div>
+  <div class="float-tile ft5" data-tile>
+    <svg width="34" height="34" viewBox="3.771 6.973 23.993 17.652" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m27.501 8.469c-.252-.123-.36.111-.508.23-.05.04-.093.09-.135.135-.368.395-.797.652-1.358.621-.821-.045-1.521.213-2.14.842-.132-.776-.57-1.238-1.235-1.535-.349-.155-.701-.309-.944-.645-.171-.238-.217-.504-.303-.765-.054-.159-.108-.32-.29-.348-.197-.031-.274.135-.352.273-.31.567-.43 1.192-.419 1.825.028 1.421.628 2.554 1.82 3.36.136.093.17.186.128.321-.081.278-.178.547-.264.824-.054.178-.135.217-.324.14a5.448 5.448 0 0 1-1.719-1.169c-.848-.82-1.614-1.726-2.57-2.435-.225-.166-.449-.32-.681-.467-.976-.95.128-1.729.383-1.82.267-.096.093-.428-.77-.424s-1.653.293-2.659.677a2.782 2.782 0 0 1-.46.135 9.554 9.554 0 0 0-2.853-.1c-1.866.21-3.356 1.092-4.452 2.6-1.315 1.81-1.625 3.87-1.246 6.018.399 2.261 1.552 4.136 3.326 5.601 1.837 1.518 3.955 2.262 6.37 2.12 1.466-.085 3.1-.282 4.942-1.842.465.23.952.322 1.762.392.623.059 1.223-.031 1.687-.127.728-.154.677-.828.414-.953-2.132-.994-1.665-.59-2.09-.916 1.084-1.285 2.717-2.619 3.356-6.94.05-.343.007-.558 0-.837-.004-.168.034-.235.228-.254a4.084 4.084 0 0 0 1.529-.47c1.382-.757 1.938-1.997 2.07-3.485.02-.227-.004-.463-.243-.582zm-12.041 13.391c-2.067-1.627-3.07-2.162-3.483-2.138-.387.021-.318.465-.233.754.089.285.205.482.368.732.113.166.19.414-.112.598-.666.414-1.823-.139-1.878-.166-1.347-.793-2.473-1.842-3.267-3.276-.765-1.38-1.21-2.861-1.284-4.441-.02-.383.093-.518.472-.586a4.692 4.692 0 0 1 1.514-.04c2.109.31 3.905 1.255 5.41 2.749.86.853 1.51 1.871 2.18 2.865.711 1.057 1.478 2.063 2.454 2.887.343.289.619.51.881.672-.792.088-2.117.107-3.022-.61zm.99-6.38a.304.304 0 1 1 .609 0c0 .17-.136.304-.306.304a.3.3 0 0 1-.303-.305zm3.077 1.581c-.197.08-.394.15-.584.159a1.246 1.246 0 0 1-.79-.252c-.27-.227-.463-.354-.546-.752a1.752 1.752 0 0 1 .016-.582c.07-.324-.008-.531-.235-.72-.187-.155-.422-.196-.682-.196a.551.551 0 0 1-.252-.078c-.108-.055-.197-.19-.112-.356.027-.053.159-.183.19-.207.352-.201.758-.135 1.134.016.349.142.611.404.99.773.388.448.457.573.678.906.174.264.333.534.441.842.066.192-.02.35-.248.448z" fill="#4d6bfe"/></svg>
+  </div>
+  <div class="float-tile ft6" data-tile>
+    <svg width="34" height="34" viewBox="0 -.01 39.5 39.53" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m7.75 26.27 7.77-4.36.13-.38-.13-.21h-.38l-1.3-.08-4.44-.12-3.85-.16-3.73-.2-.94-.2-.88-1.16.09-.58.79-.53 1.13.1 2.5.17 3.75.26 2.72.16 4.03.42h.64l.09-.26-.22-.16-.17-.16-3.88-2.63-4.2-2.78-2.2-1.6-1.19-.81-.6-.76-.26-1.66 1.08-1.19 1.45.1.37.1 1.47 1.13 3.14 2.43 4.1 3.02.6.5.24-.17.03-.12-.27-.45-2.23-4.03-2.38-4.1-1.06-1.7-.28-1.02c-.1-.42-.17-.77-.17-1.2l1.23-1.67.68-.22 1.64.22.69.6 1.02 2.33 1.65 3.67 2.56 4.99.75 1.48.4 1.37.15.42h.26v-.24l.21-2.81.39-3.45.38-4.44.13-1.25.62-1.5 1.23-.81.96.46.79 1.13-.11.73-.47 3.05-.92 4.78-.6 3.2h.35l.4-.4 1.62-2.15 2.72-3.4 1.2-1.35 1.4-1.49.9-.71h1.7l1.25 1.86-.56 1.92-1.75 2.22-1.45 1.88-2.08 2.8-1.3 2.24.12.18.31-.03 4.7-1 2.54-.46 3.03-.52 1.37.64.15.65-.54 1.33-3.24.8-3.8.76-5.66 1.34-.07.05.08.1 2.55.24 1.09.06h2.67l4.97.37 1.3.86.78 1.05-.13.8-2 1.02-2.7-.64-6.3-1.5-2.16-.54h-.3v.18l1.8 1.76 3.3 2.98 4.13 3.84.21.95-.53.75-.56-.08-3.63-2.73-1.4-1.23-3.17-2.67h-.21v.28l.73 1.07 3.86 5.8.2 1.78-.28.58-1 .35-1.1-.2-2.26-3.17-2.33-3.57-1.88-3.2-.23.13-1.11 11.95-.52.61-1.2.46-1-.76-.53-1.23.53-2.43.64-3.17.52-2.52.47-3.13.28-1.04-.02-.07-.23.03-2.36 3.24-3.59 4.85-2.84 3.04-.68.27-1.18-.61.11-1.09.66-.97 3.93-5 2.37-3.1 1.53-1.79-.01-.26h-.09l-10.44 6.78-1.86.24-.8-.75.1-1.23.38-.4 3.14-2.16z" fill="#d97757"/></svg>
+  </div>
+  <h1>
+    <span class="line1">One Platform,</span>
+    <span class="line2">All AI Models</span>
+  </h1>
+  <p class="hero-sub">Access Claude, GPT-4o, and DeepSeek in one place. Pay in Naira. No dollar card needed.</p>
   <div class="hero-btns">
-    <a href="#pricing" class="btn-primary">&#9654; Basic Plan - &#8358;10,000/mo</a>
-    <a href="#pricing" class="btn-secondary">&#11088; Pro Plan - &#8358;18,000/mo</a>
+    <a href="https://paystack.shop/pay/vcl7ix1oob" class="btn-dark" target="_blank" rel="noopener noreferrer">Get Basic - &#8358;10,000/mo</a>
+    <a href="https://paystack.shop/pay/bk4b1rtizn" class="btn-outline" target="_blank" rel="noopener noreferrer">Get Pro - &#8358;15,000/mo</a>
   </div>
-  <div class="model-badges">
-    <span class="badges-label">Includes:</span>
-    <div class="model-badge"><div class="model-icon icon-gpt">G</div>ChatGPT / GPT-4o</div>
-    <div class="model-badge"><div class="model-icon icon-claude">C</div>Claude 3.5 Sonnet</div>
-    <div class="model-badge"><div class="model-icon icon-deepseek">D</div>DeepSeek R1</div>
+  <div class="model-pills">
+    <span class="pill">&#10022; Claude 3.5</span>
+    <span class="pill">&#10022; GPT-4o</span>
+    <span class="pill">&#10022; DeepSeek R1</span>
+  </div>
+  <div class="mockup-card fade-up">
+    <div class="mockup-topbar">
+      <span class="dot dot-r"></span>
+      <span class="dot dot-y"></span>
+      <span class="dot dot-g"></span>
+      <span class="mockup-label">UsenPrime AI - Chat</span>
+    </div>
+    <div class="chat-wrap">
+      <div class="bubble-user">What's the difference between Claude and GPT-4o?</div>
+      <div class="bubble-ai">Great question! Claude excels at nuanced writing and reasoning, while GPT-4o is strong at multimodal tasks. With UsenPrime, you get both - switch anytime.</div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" placeholder="Ask anything..." readonly/>
+      <button class="send-btn" aria-label="Send">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
   </div>
 </section>
-<div class="glow-line"></div>
 
-<!-- HOW IT WORKS -->
-<section class="hiw" id="how-it-works">
-  <div class="center">
-    <span class="section-label">Simple Process</span>
-    <h2 class="section-title">Get started in 3 easy steps</h2>
-    <p class="section-sub center">No tech hassle. No dollar cards. No waiting. Just choose, pay, and go.</p>
-  </div>
-  <div class="steps">
-    <div class="step-card">
-      <div class="step-num">1</div>
-      <div class="step-icon">&#128196;</div>
-      <h3>Choose Your Plan</h3>
-      <p>Pick Basic for everyday AI tasks or Pro for full access to frontier models and higher token limits.</p>
+<!-- WHY -->
+<section class="why" id="why">
+  <h2 class="fade-up">Why Nigerians Choose UsenPrime</h2>
+  <div class="why-grid">
+    <div class="why-card fade-up">
+      <div class="why-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      </div>
+      <h3>No Dollar Card Needed</h3>
+      <p>Pay entirely in Naira via bank transfer, card, or USSD. Zero foreign exchange stress.</p>
     </div>
-    <div class="step-card">
-      <div class="step-num">2</div>
-      <div class="step-icon">&#128274;</div>
-      <h3>Pay Securely in Naira</h3>
-      <p>Checkout via Paystack using your Nigerian bank card, USSD, or bank transfer. Fast and safe.</p>
+    <div class="why-card fade-up">
+      <div class="why-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+      </div>
+      <h3>All Models, One Subscription</h3>
+      <p>Claude, GPT-4o, and DeepSeek under one roof. No juggling multiple accounts or API keys.</p>
     </div>
-    <div class="step-card">
-      <div class="step-num">3</div>
-      <div class="step-icon">&#9889;</div>
-      <h3>Get Instant Access</h3>
-      <p>Receive your credentials immediately after payment. Start using your AI tools within minutes.</p>
+    <div class="why-card fade-up">
+      <div class="why-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <h3>Instant Access After Payment</h3>
+      <p>Your account is activated automatically the moment your payment clears. No waiting, no manual approvals.</p>
     </div>
   </div>
 </section>
-<div class="glow-line"></div>
 
 <!-- PRICING -->
-<section id="pricing">
-  <div class="center">
-    <span class="section-label">Pricing</span>
-    <h2 class="section-title">Affordable AI. No Dollar Stress.</h2>
-    <p class="section-sub center">Both plans renew monthly and can be cancelled at any time.</p>
-  </div>
+<section class="pricing" id="pricing">
+  <h2 class="fade-up">Simple, Honest Pricing</h2>
+  <p class="pricing-sub fade-up">One price. All the AI you need. Cancel anytime.</p>
   <div class="pricing-grid">
-    <!-- Basic -->
-    <div class="price-card">
-      <div class="plan-name">Basic Plan</div>
-      <div class="plan-price">
-        <span class="currency">&#8358;</span>
-        <span class="amount">10,000</span>
-        <span class="period">/month</span>
+    <div class="price-card fade-up">
+      <div class="plan-label">Basic Plan</div>
+      <div class="plan-amount">
+        <span class="plan-sym">&#8358;</span>
+        <span class="plan-num">10,000</span>
       </div>
-      <p class="plan-desc">Perfect for students, writers, and everyday AI users.</p>
-      <ul class="plan-features">
-        <li class="highlight-feat">DeepSeek R1 Access</li>
-        <li class="highlight-feat">GPT-4o Mini Access</li>
-        <li>50,000 tokens/day</li>
-        <li>Web-based interface</li>
-        <li>Email support</li>
-        <li>Cancel anytime</li>
+      <div class="plan-period">/month</div>
+      <div class="divider"></div>
+      <ul class="feat-list">
+        <li><svg class="chk" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>DeepSeek R1</li>
+        <li><svg class="chk" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>GPT-4o Mini</li>
+        <li><svg class="chk" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>50,000 tokens/day</li>
+        <li><svg class="chk" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Email support</li>
       </ul>
-      <a href="https://paystack.shop/pay/vcl7ix1oob" class="btn-plan btn-plan-basic" target="_blank" rel="noopener noreferrer">Subscribe Now</a>
+      <a href="https://paystack.shop/pay/vcl7ix1oob" class="btn-full-dark" target="_blank" rel="noopener noreferrer">Subscribe Now</a>
     </div>
-    <!-- Pro -->
-    <div class="price-card popular">
-      <div class="popular-badge">&#11088; Most Popular</div>
-      <div class="plan-name">Pro Plan</div>
-      <div class="plan-price">
-        <span class="currency">&#8358;</span>
-        <span class="amount">18,000</span>
-        <span class="period">/month</span>
+    <div class="price-card pro fade-up">
+      <span class="popular-pill">Most Popular</span>
+      <div class="plan-label">Pro Plan</div>
+      <div class="plan-amount">
+        <span class="plan-sym">&#8358;</span>
+        <span class="plan-num">15,000</span>
       </div>
-      <p class="plan-desc">For professionals and teams who need full AI power daily.</p>
-      <ul class="plan-features">
-        <li class="highlight-feat">Claude 3.5 Sonnet Access</li>
-        <li class="highlight-feat">GPT-4o Full Access</li>
-        <li class="highlight-feat">DeepSeek R1 Access</li>
-        <li>150,000 tokens/day</li>
-        <li>Priority queue access</li>
-        <li>Priority email support</li>
-        <li>Cancel anytime</li>
+      <div class="plan-period">/month</div>
+      <div class="divider"></div>
+      <ul class="feat-list">
+        <li><svg class="chk" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Claude 3.5 Sonnet</li>
+        <li><svg class="chk" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>GPT-4o Full</li>
+        <li><svg class="chk" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>DeepSeek R1</li>
+        <li><svg class="chk" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>150,000 tokens/day</li>
+        <li><svg class="chk" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Priority support</li>
+        <li><svg class="chk" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>All future models</li>
       </ul>
-      <a href="https://paystack.shop/pay/bk4b1rtizn" class="btn-plan btn-plan-pro" target="_blank" rel="noopener noreferrer">Subscribe Now</a>
+      <a href="https://paystack.shop/pay/bk4b1rtizn" class="btn-full-blue" target="_blank" rel="noopener noreferrer">Subscribe Now</a>
     </div>
   </div>
 </section>
-<div class="glow-line"></div>
 
 <!-- FAQ -->
 <section class="faq" id="faq">
-  <div class="center">
-    <span class="section-label">FAQ</span>
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    <p class="section-sub center">Got questions? We have answers.</p>
-  </div>
+  <h2 class="fade-up">Frequently Asked Questions</h2>
   <div class="faq-list">
     <div class="faq-item">
-      <button class="faq-q">
-        What AI models do I get access to?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">
-        <p>Basic plan includes DeepSeek R1 and GPT-4o Mini. The Pro plan gives you full access to Claude 3.5 Sonnet, GPT-4o (full version), and DeepSeek R1 - all three frontier models under one subscription.</p>
-      </div>
+      <div class="faq-q"><span>What AI models do I get access to?</span><span class="faq-chevron">+</span></div>
+      <div class="faq-a"><p>Basic plan includes DeepSeek R1 and GPT-4o Mini. Pro plan unlocks Claude 3.5 Sonnet, GPT-4o Full, and DeepSeek R1 - all three frontier models under one subscription.</p></div>
     </div>
     <div class="faq-item">
-      <button class="faq-q">
-        How does payment work?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">
-        <p>We use Paystack, Nigeria's leading payment gateway. You can pay with any Nigerian debit/credit card, USSD, bank transfer, or mobile money. No dollar card required - everything is billed in Naira.</p>
-      </div>
+      <div class="faq-q"><span>How does payment work?</span><span class="faq-chevron">+</span></div>
+      <div class="faq-a"><p>We use Paystack, Nigeria's leading payment gateway. You can pay with any Nigerian debit/credit card, USSD, or bank transfer. No dollar card required - everything is billed in Naira.</p></div>
     </div>
     <div class="faq-item">
-      <button class="faq-q">
-        Can I cancel anytime?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">
-        <p>Yes. There are no lock-in contracts. You can cancel your subscription at any time from your account dashboard, and you'll retain access until the end of your current billing period.</p>
-      </div>
+      <div class="faq-q"><span>Can I cancel anytime?</span><span class="faq-chevron">+</span></div>
+      <div class="faq-a"><p>Yes. There are no lock-in contracts. Cancel anytime from your account dashboard and you retain access until the end of your current billing period.</p></div>
     </div>
     <div class="faq-item">
-      <button class="faq-q">
-        Is my data secure?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">
-        <p>Absolutely. We do not store your AI conversations on our servers. All communication with AI models is encrypted end-to-end. Payment data is handled entirely by Paystack's PCI-DSS compliant infrastructure - we never see your card details.</p>
-      </div>
+      <div class="faq-q"><span>Is my data secure?</span><span class="faq-chevron">+</span></div>
+      <div class="faq-a"><p>We do not store your AI conversations on our servers. All communication is encrypted end-to-end. Payment data is handled entirely by Paystack's PCI-DSS compliant infrastructure - we never see your card details.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>Do I need a dollar card or foreign account?</span><span class="faq-chevron">+</span></div>
+      <div class="faq-a"><p>Not at all. UsenPrime was built specifically for Nigerians. Pay with your regular Nigerian bank card, USSD code, or bank transfer. Everything runs in Naira.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>What happens if I miss a payment?</span><span class="faq-chevron">+</span></div>
+      <div class="faq-a"><p>Your subscription will pause at the end of the current billing cycle. Your account and history are kept safe. Simply renew your subscription whenever you're ready and access is restored instantly.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>Can I upgrade from Basic to Pro?</span><span class="faq-chevron">+</span></div>
+      <div class="faq-a"><p>Yes. You can upgrade at any time. Just subscribe to the Pro plan and your access will be upgraded immediately. Contact our support team and we'll help sort out any proration.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>How many devices can I use?</span><span class="faq-chevron">+</span></div>
+      <div class="faq-a"><p>Your subscription works across all your devices - phone, tablet, and desktop. Log in from any browser with no limits on the number of devices connected to your account.</p></div>
     </div>
   </div>
 </section>
-<div class="glow-line"></div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">
-    <img src="preview-removebg-preview.png" alt="Usen Prime Inc" style="height:100px;width:auto;object-fit:contain;">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <a href="#" style="display:flex;align-items:center;line-height:0;">
+        <img src="logo.png" alt="UsenPrime" style="height:40px;width:auto;max-width:160px;object-fit:contain;padding:0;margin:0;display:block;">
+      </a>
+      <span class="footer-tagline">Empowering African Innovators</span>
+    </div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <div class="footer-copy">&#169; 2025 UsenPrime Inc. All rights reserved.</div>
   </div>
-  <p class="footer-tag">Access the World's Most Powerful AI Tools - Pay in Naira</p>
-  <p class="footer-copy">&copy; 2025 UsenPrime Global Deals AI. All rights reserved.</p>
 </footer>
 
 <script>
+// Hamburger
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  });
+});
+
 // FAQ accordion
-document.querySelectorAll('.faq-q').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.closest('.faq-item');
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('click', () => {
     const isOpen = item.classList.contains('open');
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   });
 });
+
+// Tile parallax
+const heroEl = document.getElementById('home');
+const tiles = heroEl ? heroEl.querySelectorAll('[data-tile]') : [];
+if(heroEl && tiles.length){
+  heroEl.addEventListener('mousemove', e => {
+    const r = heroEl.getBoundingClientRect();
+    const dx = (e.clientX - r.left - r.width / 2) / (r.width / 2);
+    const dy = (e.clientY - r.top - r.height / 2) / (r.height / 2);
+    tiles.forEach(t => { t.style.transform = `translate(${dx*15}px,${dy*15}px)`; });
+  });
+  heroEl.addEventListener('mouseleave', () => {
+    tiles.forEach(t => { t.style.transform = ''; });
+  });
+}
+
+// Fade-up on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
